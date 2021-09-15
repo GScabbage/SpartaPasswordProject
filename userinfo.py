@@ -9,10 +9,12 @@ class userinfoclass:
                 print ("Great! next")
                 return False
                 break
-            else:
+            elif check.lower() == "n":
                 print("ok, please re-enter data")
                 return True
                 break
+            else:
+                print("Error, ivalid option entered")
     def fname(self):
         t=True
         while t == True:
