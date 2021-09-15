@@ -101,11 +101,11 @@ class userinfoclass:
             with closing(connection.cursor()) as cursor:
                 cursor.execute("INSERT INTO user_info (FirstName, LastName, DayofBirth, MonthofBirth, YearofBirth, MoBtxt, YoBl2) VALUES (?,?,?,?,?,?,?)",(infodump[0],infodump[1],infodump[2],infodump[3],infodump[4],infodump[5],infodump[6],))
                 connection.commit()
-        with closing(sqlite3.connect("users.db")) as connection:
-            with closing(connection.cursor()) as cursor:
-                cursor.execute("SELECT * FROM user_info;")
-                records=cursor.fetchall()
-                print(records)
+        #with closing(sqlite3.connect("users.db")) as connection:
+        #    with closing(connection.cursor()) as cursor:
+        #        cursor.execute("SELECT * FROM user_info;")
+        #        records=cursor.fetchall()
+        #        print(records)
     def gatherinfo(self):
         fn = self.fname()
         ln = self.lname()
@@ -154,8 +154,9 @@ class userinfoclass:
         else:
             userinfolist.append(dec)
         userinfolist.append(str(yfb)[-2:])
-        print(userinfolist)
+        #print(userinfolist)
         self.senduserdb(userinfolist)
+        return userinfolist
     def userdataretrieve(self):
         while True:
             fn=input("Please enter your first name: ")
@@ -176,5 +177,3 @@ class userinfoclass:
                         id = udat.pop(0)
                         print(udat)
                         return udat
-#gatherinfo()
-#userinfo.userdataretrieve()
