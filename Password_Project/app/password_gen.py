@@ -1,11 +1,11 @@
 import random
 from app.userinfo import userinfoclass
-ii=userinfoclass()
+infoget=userinfoclass()
 from app.userinfopwordchecker import uipchecker
-oo=uipchecker()
+infocheck=uipchecker()
 from app.check import Pass_Check
-uu=Pass_Check()
-# Below are the characters, numbers, and symbols that are allowed in the password.
+gencheck=Pass_Check()
+
 class passwordgenclass:
     def question(self):
         while True:
@@ -15,13 +15,11 @@ class passwordgenclass:
             response = int(input("Which do you want to do? :\n"))
 
             if response == 1:
-                print("NEW INFO")
-                newinfo = ii.gatherinfo()
+                newinfo = infoget.gatherinfo()
                 return newinfo
 
             elif response == 2:
-                print("RETRIEVE")
-                retrieve_info = ii.userdataretrieve()
+                retrieve_info = infoget.userdataretrieve()
                 return retrieve_info
             else:
                 print("Invalid Entry")
@@ -40,18 +38,16 @@ class passwordgenclass:
                     print("Please enter more than", min_pass_length, "characters")
             print("Here is your password:  ", password)
             print("---------------------\n")
-            while True:
-                print("1.Generate a new password")
-                print("2.Go back to home menu\n")
-                regen = int(input("Would you like to do? :"))
-                if regen == 1:
-                    continue
-                    #print("you pressed yes")
-                elif regen == 2:
-                    print("Thanks for using the password generator\n")
-                    break
-                else:
-                    print("Please enter a valid response")
+            print("1.Generate a new password")
+            print("2.Go back to home menu\n")
+            regen = int(input("Would you like to do? :"))
+            if regen == 1:
+                continue
+            elif regen == 2:
+                print("Thanks for using the password generator\n")
+                break
+            else:
+                print("Please enter a valid response")
 
     def passgen(self, password_len, userinfo):
         char_lower= "abcdefghijklmnopqrstuvwxyz"
@@ -96,7 +92,7 @@ class passwordgenclass:
                     password = password + random.choice(num)
     #Below will join the different items together randomly to form one string.
             password = ''.join(random.sample(password, len(password)))
-            uservalid = oo.compare(userinfo, password)
-            listvalid = uu.list_check(password)
+            uservalid = infocheck.compare(userinfo, password)
+            listvalid = gencheck.list_check(password)
             if listvalid != 1 and uservalid != 1:
                 return password

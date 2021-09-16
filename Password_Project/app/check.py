@@ -1,7 +1,7 @@
 from app.userinfo import userinfoclass
-ii=userinfoclass()
+infoget=userinfoclass()
 from app.userinfopwordchecker import uipchecker
-oo=uipchecker()
+infocheck=uipchecker()
 from app.pchecker import passrep
 pp=passrep()
 from app.reportexporter import reportclass
@@ -20,13 +20,11 @@ class Pass_Check:
             response = int(input("Which do you want to do? :\n"))
 
             if response == 1:
-                print("NEW INFO")
-                newinfo = ii.gatherinfo()
+                newinfo = infoget.gatherinfo()
                 return newinfo
 
             elif response == 2:
-                print("RETRIEVE")
-                retrieve_info = ii.userdataretrieve()
+                retrieve_info = infoget.userdataretrieve()
                 return retrieve_info
             else:
                 print("Invalid Entry")
@@ -35,17 +33,19 @@ class Pass_Check:
     def common_pw_check(self):
 
         ui = self.question()
-
-        print(ui)
         while True:
             pw = input("What password would you like to check the list for? : \n")
 
-            use = oo.compare(ui, pw)
+            use = infocheck.compare(ui, pw)
             if use == 1:
                 print("Your password contains some of your personal information")
             else:
                 print("Your password is clean of your user information")
             com = self.list_check(pw)
+            if com ==1:
+                print ("This password has been marked as either a common password or contains a common password")
+            else:
+                print("This password does not appear to be a common password, please check your password policy before you use it ")
             replist = pp.policycheck(pw,use,com)
 
             while True:
@@ -63,21 +63,15 @@ class Pass_Check:
                 print("Retesting")
 
             elif re == 2:
-                print("this should go back to menu")
                 return
 
 
-
-
     def list_check(self,password):
-        common_pw_file = open("app/Top 10000 Passwords.txt").read().splitlines()
+        common_pw_file = open("app/Top 1 Million Passwords.txt").read().splitlines()
         if any(info in password for info in common_pw_file):
-            print ("This password has been marked as either a common password or contains a common password")
             return 1
         else:
-            print("This password does not appear to be a common password, please check your password policy before you use it ")
             return 0
-#        self.cpc_retest()
 
     def cpc_retest(self):
 
