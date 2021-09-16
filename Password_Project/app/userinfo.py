@@ -98,7 +98,8 @@ class userinfoclass:
                     cursor.execute("CREATE TABLE user_info (id INTEGER PRIMARY KEY, FirstName TEXT, LastName TEXT, DayofBirth TEXT, MonthofBirth TEXT, YearofBirth TEXT, MoBtxt TEXT, YoBl2 TEXT);")
                     connection.commit()
         except:
-            print ("DB already exists")
+            #print ("DB already exists")
+            pass
         with closing(sqlite3.connect("users.db")) as connection:
             with closing(connection.cursor()) as cursor:
                 cursor.execute("INSERT INTO user_info (FirstName, LastName, DayofBirth, MonthofBirth, YearofBirth, MoBtxt, YoBl2) VALUES (?,?,?,?,?,?,?)",(infodump[0],infodump[1],infodump[2],infodump[3],infodump[4],infodump[5],infodump[6],))
@@ -154,7 +155,7 @@ class userinfoclass:
         elif mfb == 11:
             userinfolist.append("nov")
         else:
-            userinfolist.append(dec)
+            userinfolist.append("dec")
         userinfolist.append(str(yfb)[-2:])
         #print(userinfolist)
         self.senduserdb(userinfolist)
@@ -177,5 +178,5 @@ class userinfoclass:
                     else:
                         udat = list(udat)
                         id = udat.pop(0)
-                        print(udat)
+                        #print(udat)
                         return udat

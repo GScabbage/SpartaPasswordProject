@@ -1,15 +1,13 @@
-from check import Pass_Check
-play=Pass_Check()
-
+from app.check import Pass_Check
+pc=Pass_Check()
+from app.userinfo import userinfoclass
+ui=userinfoclass()
 
 class Homepage:
-    def welcome(self):
-        print("Welcome to the password Analyser/Generator")
-        print()
-        print("1. Password Analyser")
-        print("2. Password Generator")
-        print("3. Exit Application")
-        print()
+
+    def __init__(self):
+        print ("self")
+
 
     def function_choice(self):
         try:
@@ -23,8 +21,8 @@ class Homepage:
 
             if function == 1:
                 #run password analyser
-                print ("This was option 1")
-                play.common_pw_check()
+                #print ("This was option 1")
+                pc.common_pw_check()
                 #Pass_Check.common_pw_check(self)
 
             elif function == 2:
@@ -41,9 +39,20 @@ class Homepage:
             print()
             self.function_choice()
 
-            
-home=Homepage()
-home.welcome()
-home.function_choice()
+
+
+    def welcome(self):
+        while True:
+            print("Welcome to the password Analyser/Generator")
+            print()
+            print("1. Password Analyser")
+            print("2. Password Generator")
+            print("3. Exit Application")
+            print()
+            self.function_choice()
+
+
+#home=Homepage()
+#home.welcome()
 print()
 print("The code ran all the way")
