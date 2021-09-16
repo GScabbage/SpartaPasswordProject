@@ -6,10 +6,8 @@ from app.pchecker import passrep
 pp=passrep()
 from app.reportexporter import reportclass
 rep=reportclass()
-#def classname  = new Pass_Check
-#classname.test
+
 class Pass_Check:
-    #def __init__(self):
 
     def question(self):
 
@@ -25,7 +23,10 @@ class Pass_Check:
 
             elif response == 2:
                 retrieve_info = infoget.userdataretrieve()
-                return retrieve_info
+                if retrieve_info == None:
+                    pass
+                else:
+                    return retrieve_info
             else:
                 print("Invalid Entry")
                 return
@@ -36,7 +37,7 @@ class Pass_Check:
         while True:
             pw = input("What password would you like to check the list for? : \n")
 
-            use = infocheck.compare(ui, pw)
+            use = infocheck.compare(ui, pw.lower())
             if use == 1:
                 print("Your password contains some of your personal information")
             else:

@@ -142,7 +142,7 @@ class userinfoclass:
             ln=input("Please enter your last name: ")
             with closing(sqlite3.connect("users.db")) as connection:
                 with closing(connection.cursor()) as cursor:
-                    cursor.execute("SELECT * FROM user_info WHERE FirstName=? and LastName=?", (fn,ln,))
+                    cursor.execute("SELECT * FROM user_info WHERE FirstName=? and LastName=?", (fn.lower(),ln.lower(),))
                     udat= cursor.fetchone()
                     if udat==None:
                         print("No data found")

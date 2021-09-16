@@ -20,7 +20,10 @@ class passwordgenclass:
 
             elif response == 2:
                 retrieve_info = infoget.userdataretrieve()
-                return retrieve_info
+                if retrieve_info == None:
+                    pass
+                else:
+                    return retrieve_info
             else:
                 print("Invalid Entry")
                 return
