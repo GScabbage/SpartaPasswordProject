@@ -1,7 +1,32 @@
 import random
-
+from app.userinfo import userinfoclass
+ii=userinfoclass()
+from app.userinfopwordchecker import uipchecker
+oo=uipchecker()
+from app.check import Pass_Check
+uu=Pass_Check()
 # Below are the characters, numbers, and symbols that are allowed in the password.
 class passwordgenclass:
+    def question(self):
+        while True:
+            print()
+            print("1. Enter new info")
+            print("2. Retrieve existing info")
+            response = int(input("Which do you want to do? :\n"))
+
+            if response == 1:
+                print("NEW INFO")
+                newinfo = ii.gatherinfo()
+                return newinfo
+
+            elif response == 2:
+                print("RETRIEVE")
+                retrieve_info = ii.userdataretrieve()
+                return retrieve_info
+            else:
+                print("Invalid Entry")
+                return
+
     def gen(self):
         char_lower= "abcdefghijklmnopqrstuvwxyz"
         char_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -46,7 +71,7 @@ class passwordgenclass:
                         password = password + random.choice(num)
         #Below will join the different items together randomly to form one string.
                 password = ''.join(random.sample(password, len(password)))
-
+                oo.compare(ui, password)
                 print("Here is your password:  ", password)
                 print("---------------------")
                 print("---------------------")
