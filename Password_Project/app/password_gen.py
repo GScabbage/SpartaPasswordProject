@@ -32,7 +32,7 @@ class passwordgenclass:
         while True:
             while True:
                 password_len = int(input("what length would you like your password to be?  :"))
-                min_pass_length = 5
+                min_pass_length = 8
                 if password_len >= min_pass_length:
                     password = self.passgen(password_len, ui)
                     break
@@ -40,12 +40,13 @@ class passwordgenclass:
                     print("Please enter more than", min_pass_length, "characters")
             print("Here is your password:  ", password)
             print("---------------------")
-            print("---------------------")
-            regen = str(input("Would you like to generate another password?     y/n  :"))
-            if regen.lower() == 'y':
+            print("1.Generate a new password")
+            print("2.Go back to home menu")
+            regen = int(input("Would you like to do? :"))
+            if regen == 1:
                 continue
                 #print("you pressed yes")
-            else:
+            elif regen == 2:
                 print("Goodbye")
                 break
 
