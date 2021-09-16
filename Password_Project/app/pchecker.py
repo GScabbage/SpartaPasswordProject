@@ -1,34 +1,21 @@
 import re
 
 class passrep:
-    password = (input(" Enter your password: "))
-    #length = str(len(password))
-    digits = len(re.findall(r'[0-9]', password))
-    score = 0
-    def scoreinc(cls):
-        cls.score+=10
 
     def length_character(self, password):
         password_length_good = False
+        length = str(len(password))
         if len (password) < 8:
             print("[!] Password should be atleast 8 characters long")
             print("[!] Password is only", length, "characters long" )
             password_length_good = False;
-
+            return 0
         else:
-                print("(*) Your password is", length, "characters :)  ")
-                password_length_good = True;
+            print("(*) Your password is", length, "characters :)  ")
+            password_length_good = True;
+            return 10
 
-                if password_length_good == True:
-                    self.scoreinc()
-                    #global score
-                    #score += 10
 
-    #length_character(password)
-
-    #
-
-    # working
     def uppercase_character(self, password):
         UpperLength = len(re.findall(r'[A-Z]', password))
         print("(*) Your password contains", UpperLength, "uppercase characters")
@@ -40,10 +27,10 @@ class passrep:
         if UpperLength == 0:
             print("[!] Your password should have atleast 1 uppercase character!")
 
-        if password_char_good == True:
+        #if password_char_good == True:
             #global score
             #score += 10
-            self.scoreinc()
+            #self.scoreinc()
 
     #uppercase_character(password)
 
@@ -61,10 +48,10 @@ class passrep:
         if digits > 0:
             password_num_good = True
 
-        if password_num_good == True:
+        #if password_num_good == True:
             #global score
             #score += 10
-            self.scoreinc()
+        #    self.scoreinc()
     #num_digits(password)
 
 
@@ -90,10 +77,10 @@ class passrep:
         if special_char > 0:
             password_special_good = True
 
-        if password_special_good == True:
+        #if password_special_good == True:
             #global score
             #score += 10
-            self.scoreinc()
+            #self.scoreinc()
 
 
     if __name__ == '__main__' :
@@ -111,6 +98,12 @@ class passrep:
         elif score > 30:
             print("your password is strong")
 
-    def policycheck(self):
-
+    def policycheck(self,password):
+        lpoints = self.length_character(password)
+        upoints = self.uppercase_character(password)
+        dpoints = self.num_digits(password)
+        spoints = self.count_special_character(password)
+        score = lpoints
+        #self.score_total()
+        print(score)
     #score_total(score)

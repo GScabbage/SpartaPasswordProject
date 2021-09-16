@@ -2,12 +2,12 @@ from app.userinfo import userinfoclass
 ii=userinfoclass()
 from app.userinfopwordchecker import uipchecker
 oo=uipchecker()
-
+from app.pchecker import passrep
+pp=passrep()
 #def classname  = new Pass_Check
 #classname.test
 class Pass_Check:
-    def __init__(self):
-        print ("self")
+    #def __init__(self):
 
     def question(self):
 
@@ -40,6 +40,7 @@ class Pass_Check:
 
             oo.compare(ui, pw)
             self.list_check(pw)
+            pp.policycheck(pw)
             re = self.cpc_retest()
             if re == 1:
                 print("Retesting")
