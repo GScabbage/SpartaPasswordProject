@@ -2,11 +2,13 @@ from app.check import Pass_Check
 pc=Pass_Check()
 from app.userinfo import userinfoclass
 ui=userinfoclass()
+from app.password_gen import passwordgenclass
+generate=passwordgenclass()
 
 class Homepage:
 
     def __init__(self):
-        print ("self")
+        
 
 
     def function_choice(self):
@@ -27,7 +29,8 @@ class Homepage:
 
             elif function == 2:
                 #run password generator
-                print ("This was option 2")
+                generate.gen()
+                #print ("This was option 2")
 
             elif function == 3:
                 print()

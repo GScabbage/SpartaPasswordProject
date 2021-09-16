@@ -8,7 +8,7 @@ class passwordgenclass:
         sym = "!@$%^&*()-_=+[{}]|<,.>/?"
         num = "123456789"
         #Below are the required lengths and number of special characters in the generated password.
-        min_pass_length = 5
+        min_pass_length = 8
         required_char_lower=1
         required_char_upper=1
         required_char_sym=1
@@ -16,7 +16,7 @@ class passwordgenclass:
 
         while 1:
             password_len = int(input("what length would you like your password to be?  :"))
-            if password_len > min_pass_length:#The password_len has to be greater than the min_pass_length otherwise it will go to the else: at the bottom of the code.
+            if password_len >= min_pass_length:#The password_len has to be greater than the min_pass_length otherwise it will go to the else: at the bottom of the code.
 
                 password = ""
                 if required_char_lower > 0:
@@ -49,12 +49,13 @@ class passwordgenclass:
 
                 print("Here is your password:  ", password)
                 print("---------------------")
-                print("---------------------")
-                regen = str(input("Would you like to generate another password?     y/n  :"))
-                if regen.lower() == 'y':
+                print("1. Regenerate a new password")
+                print("2. Go back to the menu")
+                regen = int(input("What would you like to do?:"))
+                if regen == 1:
                     continue
                     #print("you pressed yes")
-                else:
+                elif regen == 2:
                     print("Goodbye")
                     break
             else:
