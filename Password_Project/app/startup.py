@@ -7,8 +7,8 @@ pg=passwordgenclass()
 
 class Homepage:
 
-    def __init__(self):
-        print ("self")
+    #def __init__(self):
+    #    print ("self")
 
 
     def function_choice(self):
@@ -16,19 +16,14 @@ class Homepage:
             function = int(input("Please choose one of the above options to select the function you would like to use :\n"))
 
             while function not in [1,2,3]:
-            #while function > 3 or function < 1 or:
                 print()
                 print("You have not selected a valid option, please re-enter your choice :\n")
                 function = int(input("Please choose one of the above options to select the function you would like to use :\n"))
 
             if function == 1:
-                #run password analyser
-                #print ("This was option 1")
                 pc.common_pw_check()
-                #Pass_Check.common_pw_check(self)
 
             elif function == 2:
-                #run password generator
                 pg.gen()
                 print ("This was option 2")
 
@@ -53,9 +48,3 @@ class Homepage:
             print("3. Exit Application")
             print()
             self.function_choice()
-
-
-#home=Homepage()
-#home.welcome()
-print()
-print("The code ran all the way")
