@@ -15,6 +15,20 @@ class userinfoclass:
                 break
             else:
                 print("Error, ivalid option entered")
+
+    def full_name(self):
+        t=True
+        while t == True:
+            fname = input("Please enter first name: ")
+            lname = input("Please enter last name: ")
+            print (fname , lname)
+            t = self.checkvalid(t)
+            if t==False:
+                return (fname , lname)
+            else:
+                pass
+
+
     def fname(self):
         t=True
         while t == True:
@@ -39,34 +53,34 @@ class userinfoclass:
                 pass
             #t = self.checkvalid(fname)
     def dayofb(self):
-        t=True
-        while t == True:
+
+        while True:
             try:
                 dayofb = int(input("Please enter day of birth: "))
                 if (len(str(dayofb))==2 or len(str(dayofb))==1) and dayofb in range(1,32):
                     print (dayofb)
-                    t=self.checkvalid(t)
-                    if t==False:
-                        return dayofb
-                    else:
-                        pass
+                    #t=self.checkvalid(t)
+                    #if t==False:
+                    return dayofb
+                    #else:
+                    #    pass
                 else:
                     print ("date of birth outside of range")
 
             except:
                 print("The data you entered was invalid, please enter an integer between 1-31")
     def monthofb(self):
-        t=True
-        while t == True:
+        #t=True
+        while True:
             try:
                 monthofb = int(input("Please enter month of birth: "))
                 if (len(str(monthofb))==2 or len(str(monthofb))==1) and monthofb in range(1,13):
                     print (monthofb)
-                    t=self.checkvalid(t)
-                    if t==False:
-                        return monthofb
-                    else:
-                        pass
+                    #t=self.checkvalid(t)
+                    #if t==False:
+                    return monthofb
+                    #else:
+                    #    pass
                 else:
                     print ("Month of birth can't exist on earth")
 
@@ -74,17 +88,17 @@ class userinfoclass:
                 print("The data you entered was invalid, please enter an integer between 1-12")
 
     def yearofb(self):
-        t=True
-        while t == True:
+        #t=True
+        while True:
             try:
                 yearofb = int(input("Please enter year of birth: "))
                 if (len(str(yearofb))==4) and yearofb >=1903 and yearofb <=2021:
                     print (yearofb)
-                    t=self.checkvalid(t)
-                    if t==False:
-                        return yearofb
-                    else:
-                        pass
+                    #t=self.checkvalid(t)
+                    #if t==False:
+                    return yearofb
+                    #else:
+                    #    pass
                 else:
                     print ("Year of birth can't exist, you are either dead or not born")
 
@@ -110,11 +124,34 @@ class userinfoclass:
         #        records=cursor.fetchall()
         #        print(records)
     def gatherinfo(self):
-        fn = self.fname()
-        ln = self.lname()
-        dfb = self.dayofb()
-        mfb = self.monthofb()
-        yfb = self.yearofb()
+        t=True
+        while t==True:
+            fn = input("Please enter first name: ")
+            ln = input("Please enter last name: ")
+            print (fn, ln)
+            t = self.checkvalid(t)
+            if t==False:
+                break
+            else:
+                pass
+        d=True
+        while d==True:
+            dfb = self.dayofb()
+            mfb = self.monthofb()
+            yfb = self.yearofb()
+            print(dfb,'/',mfb,'/',yfb)
+            d=self.checkvalid(d)
+
+            if d==False:
+                break
+            else:
+                pass
+
+        #fn = self.fname()
+        #ln = self.lname()
+        #dfb = self.dayofb()
+        #mfb = self.monthofb()
+        #yfb = self.yearofb()
         while True:
             if mfb==2 and dfb>=29:
                 leapyears = [1904, 1908, 1912, 1916, 1920, 1924, 1928, 1932, 1936, 1940, 1944, 1948, 1952, 1956, 1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016, 2020]
