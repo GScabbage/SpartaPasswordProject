@@ -11,7 +11,7 @@ class passwordgenclass:
         while True:
             print()
             print("1. Enter new info")
-            print("2. Retrieve existing info")
+            print("2. Retrieve existing info\n")
             response = int(input("Which do you want to do? :\n"))
 
             if response == 1:
