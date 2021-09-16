@@ -1,6 +1,9 @@
 class uipchecker:
     def compare(self, userdata, password):
-        if any(info in password for info in userdata):
-            print("Your password contains some of your personal information")
-        else:
-            print("Your password is clean")
+        while True:
+            if any(info in password for info in userdata):
+                print("Your password contains some of your personal information")
+                return 1
+            else:
+                print("Your password is clean")
+                return 0

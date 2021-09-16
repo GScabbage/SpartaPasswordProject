@@ -42,7 +42,7 @@ class Pass_Check:
             self.list_check(pw)
             re = self.cpc_retest()
             if re == 1:
-                pass
+                print("Retesting")
 
             elif re == 2:
                 print("this should go back to menu")
@@ -50,32 +50,27 @@ class Pass_Check:
 
 
 
+
     def list_check(self,password):
         common_pw_file = open("app/Top 10000 Passwords.txt").read().splitlines()
         if any(info in password for info in common_pw_file):
             print ("This password has been marked as either a common password or contains a common password")
-            return
+            return 1
         else:
             print("This password does not appear to be a common password, please check your password policy before you use it ")
-            return
+            return 0
 #        self.cpc_retest()
 
     def cpc_retest(self):
-        try:
+
+        while True:
+            print()
             print("1. Retest another password")
             print("2. Go back to menu")
             retest = int(input("What would you like to do from the above options? :\n"))
-
-            while retest not in [1,2]:
-                print()
-                print("1. Retest another password")
-                print("2. Go back to menu")
-                retest = int(input("What would you like to do from the above options? :\n"))
+            if retest == 1 or 2:
                 return retest
-
-
-        except ValueError:
-            print()
-            print ("You have not selected a valid option, please re-enter your choice :\n")
-            print()
-            self.cpc_retest()
+            else:
+                print()
+                print ("You have not selected a valid option, please re-enter your choice :\n")
+                print()

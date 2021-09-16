@@ -2,6 +2,8 @@ from app.check import Pass_Check
 pc=Pass_Check()
 from app.userinfo import userinfoclass
 ui=userinfoclass()
+from app.password_gen import passwordgenclass
+pg=passwordgenclass()
 
 class Homepage:
 
@@ -27,6 +29,7 @@ class Homepage:
 
             elif function == 2:
                 #run password generator
+                pg.gen()
                 print ("This was option 2")
 
             elif function == 3:
