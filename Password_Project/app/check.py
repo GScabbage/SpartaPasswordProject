@@ -4,6 +4,8 @@ from app.userinfopwordchecker import uipchecker
 oo=uipchecker()
 from app.pchecker import passrep
 pp=passrep()
+from app.reportexporter import reportclass
+rep=reportclass()
 #def classname  = new Pass_Check
 #classname.test
 class Pass_Check:
@@ -38,9 +40,24 @@ class Pass_Check:
         while True:
             pw = input("What password would you like to check the list for? : \n")
 
-            oo.compare(ui, pw)
-            self.list_check(pw)
-            pp.policycheck(pw)
+            use = oo.compare(ui, pw)
+            if use == 1:
+                print("Your password contains some of your personal information")
+            else:
+                print("Your password is clean of your user information")
+            com = self.list_check(pw)
+            replist = pp.policycheck(pw,use,com)
+
+            while True:
+                getrep=input("Would you like to generate a detailed report about your password? (y/n)")
+                if getrep.lower() == "y":
+                    rep.reportgen(replist,pw)
+                    break
+                elif getrep.lower() == "n":
+                    break
+                else:
+                    print("Invalid option selected")
+
             re = self.cpc_retest()
             if re == 1:
                 print("Retesting")
