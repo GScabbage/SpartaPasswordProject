@@ -7,8 +7,7 @@ oo=uipchecker()
 #classname.test
 class Pass_Check:
     def __init__(self):
-        print ("self")
-
+        
     def question(self):
 
         while True:
