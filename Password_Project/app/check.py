@@ -29,7 +29,7 @@ class Pass_Check:
                     return retrieve_info
             else:
                 print("Invalid Entry")
-                return
+                pass
 
     def common_pw_check(self):
 

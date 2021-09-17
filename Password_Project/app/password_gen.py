@@ -26,7 +26,7 @@ class passwordgenclass:
                     return retrieve_info
             else:
                 print("Invalid Entry")
-                return
+                pass
 
     def gen(self):
         ui = self.question()
