@@ -15,13 +15,13 @@ class Pass_Check:
             print()
             print("1. Enter new info")
             print("2. Retrieve existing info")
-            response = int(input("Which do you want to do? :\n"))
+            response = input("Which do you want to do? :\n")
 
-            if response == 1:
+            if response == "1":
                 newinfo = infoget.gatherinfo()
                 return newinfo
 
-            elif response == 2:
+            elif response == "2":
                 retrieve_info = infoget.userdataretrieve()
                 if retrieve_info == None:
                     pass
@@ -81,7 +81,6 @@ class Pass_Check:
             print("1. Retest another password")
             print("2. Go back to menu")
             retst = input("What would you like to do from the above options? :\n")
-            print(retst)
             if retst == "1" or retst == "2":
                 return retst
             else:

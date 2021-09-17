@@ -12,13 +12,13 @@ class passwordgenclass:
             print()
             print("1. Enter new info")
             print("2. Retrieve existing info\n")
-            response = int(input("Which do you want to do? :\n"))
+            response = input("Which do you want to do? :\n")
 
-            if response == 1:
+            if response == "1":
                 newinfo = infoget.gatherinfo()
                 return newinfo
 
-            elif response == 2:
+            elif response == "2":
                 retrieve_info = infoget.userdataretrieve()
                 if retrieve_info == None:
                     pass
