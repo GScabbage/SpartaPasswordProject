@@ -60,10 +60,10 @@ class Pass_Check:
                     print("Invalid option selected")
 
             re = self.cpc_retest()
-            if re == 1:
+            if re == "1":
                 print("Retesting")
 
-            elif re == 2:
+            elif re == "2":
                 return
 
 
@@ -80,9 +80,10 @@ class Pass_Check:
             print()
             print("1. Retest another password")
             print("2. Go back to menu")
-            retest = int(input("What would you like to do from the above options? :\n"))
-            if retest == 1 or 2:
-                return retest
+            retst = input("What would you like to do from the above options? :\n")
+            print(retst)
+            if retst == "1" or retst == "2":
+                return retst
             else:
                 print()
                 print ("You have not selected a valid option, please re-enter your choice :\n")
