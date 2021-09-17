@@ -35,6 +35,13 @@ class Pass_Check:
 
         ui = self.question()
         while True:
+            print()
+            print("----------This is the Password Policy----------")
+            print("Password must exceed 8 characters")
+            print("Password must contain and lower case and upper case letter")
+            print("Password must contain a numerical character")
+            print("Password must contain a special character")
+            print()
             pw = input("What password would you like to check the list for? : \n")
 
             use = infocheck.compare(ui, pw.lower())
