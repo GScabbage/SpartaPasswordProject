@@ -25,7 +25,6 @@ class Homepage:
 
             elif function == 2:
                 pg.gen()
-                print ("This was option 2")
 
             elif function == 3:
                 print()
