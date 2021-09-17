@@ -4,6 +4,8 @@ class reportclass:
         with open('Password_report_%s.txt' %spassword, 'w') as f:
             f.write("This is your password analysis report")
             f.write('\n')
+            f.write(password)
+            f.write('\n')            
             if scorelist[0] == 20:
                 f.write("You got the best score in password length as you password met the 8 character requirement and exceed 12 characters for extra security")
                 f.write('\n')
