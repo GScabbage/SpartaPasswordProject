@@ -1,7 +1,6 @@
 class reportclass:
     def reportgen(self, scorelist, password):
         spassword = ''.join(char for char in password if char.isalnum())
-        print (spassword)
         with open('Password_report_%s.txt' %spassword, 'w') as f:
             f.write("This is your password analysis report")
             f.write('\n')

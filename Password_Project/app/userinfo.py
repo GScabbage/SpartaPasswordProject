@@ -59,13 +59,13 @@ class userinfoclass:
         try:
             with closing(sqlite3.connect("users.db")) as connection:
                 with closing(connection.cursor()) as cursor:
-                    cursor.execute("CREATE TABLE user_info (id INTEGER PRIMARY KEY, FirstName TEXT, LastName TEXT, DayofBirth TEXT, MonthofBirth TEXT, YearofBirth TEXT, MoBtxt TEXT, YoBl2 TEXT);")
+                    cursor.execute("CREATE TABLE user_info (id INTEGER PRIMARY KEY, FirstName TEXT, LastName TEXT, DayMonthofBirth TEXT, MonthDayofBirth TEXT, YearofBirth TEXT, MoBtxt TEXT, YoBl2 TEXT);")
                     connection.commit()
         except:
             pass
         with closing(sqlite3.connect("users.db")) as connection:
             with closing(connection.cursor()) as cursor:
-                cursor.execute("INSERT INTO user_info (FirstName, LastName, DayofBirth, MonthofBirth, YearofBirth, MoBtxt, YoBl2) VALUES (?,?,?,?,?,?,?)",(infodump[0],infodump[1],infodump[2],infodump[3],infodump[4],infodump[5],infodump[6],))
+                cursor.execute("INSERT INTO user_info (FirstName, LastName, DayMonthofBirth, MonthDayofBirth, YearofBirth, MoBtxt, YoBl2) VALUES (?,?,?,?,?,?,?)",(infodump[0],infodump[1],infodump[2],infodump[3],infodump[4],infodump[5], infodump[6],))
                 connection.commit()
     def gatherinfo(self):
         t=True
@@ -106,8 +106,9 @@ class userinfoclass:
             else:
                 print("That all looks great, Thank You!")
                 break
-
-        userinfolist =[fn.lower(),ln.lower(),str(dfb),str(mfb),str(yfb)]
+        dmfb=str(dfb)+str(mfb)
+        mdfb=str(mfb)+str(dfb)
+        userinfolist =[fn.lower(),ln.lower(),str(dmfb),str(mdfb),str(yfb)]
         if mfb == 1:
             userinfolist.append("jan")
         elif mfb == 2:

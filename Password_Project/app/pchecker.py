@@ -96,9 +96,12 @@ class passrep:
         if user == 1 and common ==1:
             score-=100
             print ("Your password lost 100 points as it containted personal information and a common password")
-        elif user == 1 or common == 1:
+        elif user == 1:
             score-=50
-            print ("Your password lost 50 points as it containted either personal information or a common password")
+            print ("Your password lost 50 points as it containted personal information")
+        elif common == 1:
+            score-=50
+            print ("Your password lost 50 points as it containted a common password")
         else:
             pass
         print("Your password scored",score,"points!")
