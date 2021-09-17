@@ -16,6 +16,7 @@ class passrep:
 
     def lowercase_character(self, password):
         LowerLength = len(re.findall(r'[a-z]', password))
+        print()
         print("(*) Your password contains", LowerLength, "lowercase characters")
 
         if LowerLength == 1:
@@ -28,6 +29,7 @@ class passrep:
 
     def uppercase_character(self, password):
         UpperLength = len(re.findall(r'[A-Z]', password))
+        print()
         print("(*) Your password contains", UpperLength, "uppercase characters")
 
         if UpperLength == 1:
@@ -41,6 +43,7 @@ class passrep:
     def num_digits(self, password):
         password_num_good = False
         digits = len(re.findall(r'[0-9]', (password)))
+        print()
         print("(*) Your password contains", digits, "numeric digits")
 
         if digits == 1:
@@ -64,6 +67,7 @@ class passrep:
                 continue
             else:
                 special_char += 1
+        print()
         print("(*) You have {} Special Character/s in your password ".format(special_char))
         if special_char == 1:
             return 10
@@ -77,7 +81,7 @@ class passrep:
     if __name__ == '__main__' :
         string = password
     #count_special_character(password)
-
+        print()
         if score < 19:
             print("your password is weak")
 
@@ -93,6 +97,7 @@ class passrep:
         dpoints = self.num_digits(password)
         spoints = self.count_special_character(password)
         score = lpoints + lowpoints + uppoints + dpoints + spoints
+        print()
         if user == 1 and common ==1:
             score-=100
             print ("Your password lost 100 points as it containted personal information and a common password")
